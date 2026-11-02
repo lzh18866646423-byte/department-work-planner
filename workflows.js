@@ -4,7 +4,7 @@ window.WORKS=[
 {category:'职规赛',name:'全国大学生职业规划大赛',cycle:'第四届 · 2026.10—2027.04',brief:'发动报名 → 院级选拔 → 校级选拔 → 推荐省赛 → 国赛',note:'本届全国报名不晚于2027年1月31日，省赛3月15日前完成，国赛4月；本校及山东更早的报名、推荐时间待核。已过去的10月列为核查阶段，不记作已完成。',source:1},
 {category:'大创与日常',name:'大学生创新创业训练计划',cycle:'按立项批次分别执行',brief:'通知申报 → 院级审核 → 校级评审 → 推荐立项 → 中期检查 → 结项 → 经费归档',note:'本校批次节点尚未查实。表内月份是内部准备和核查窗口；正式通知确认后，应按批次分别调整，不能把所有在研项目统一到同一个截止。',source:-1},
 {category:'活动承办',name:'市级、省级活动承办',cycle:'年度机会对接 · 实施月待确认',brief:'机会调查 → 正式沟通 → 承办确认 → 方案审批 → 实施 → 复盘',note:'先核对主办方工作安排与学校条件。实施月份尚未确定；5月仅为条件检查窗口，取得确认后再安排实际举办月份。',source:0},
-{category:'统筹与复盘',name:'处室统筹与年度复盘',cycle:'年度分工、资源、成果',brief:'业务摸底 → 职责分工 → 资源申请 → 阶段复盘 → 年度收口',note:'这是处室业务安排。负责人默认登记刘志豪，可按实际分工修改姓名；预算以批准结果为准。',source:0}
+{category:'统筹与复盘',name:'创院统筹与年度复盘',cycle:'年度分工、资源、成果',brief:'业务摸底 → 职责分工 → 资源申请 → 阶段复盘 → 年度收口',note:'这是创院业务安排。负责人默认登记刘志豪，可按实际分工修改姓名；预算以批准结果为准。',source:0}
 ];
 PLANNER_SOURCES.push({title:'2025年挑战杯山东省赛 · 赛事官网记录',url:'https://2025.tiaozhanbei.net/d49/media_report?page=2',text:'赛事官网记录：2025年山东省课外学术科技作品竞赛6月6日闭幕。用于预留5—6月省赛准备窗口，2027年节点待当届通知。'}, {title:'2025年挑战杯国赛 · 清华大学官方记录',url:'https://www.tsinghua.edu.cn/info/1182/122323.htm',text:'2025年全国决赛与相关活动于10月31日至11月3日举行。仅为2027国赛秋季预留窗口的历史参照。'});
 function tag(title,stage,period){const t=PLANNER_SEED.find(t=>t.title===title);if(t){t.stage=stage;t.period=period;}}
@@ -61,7 +61,7 @@ const national=PLANNER_SEED.find(t=>t.stage==='全国总决赛'&&t.category==='�
 WORKS[0].note='建议3月发动、4月院级审核、4—5月校赛；6—7月省赛与10月国赛参考2025年实际进程。2027正式安排未核实，发布后整体校准。';
 for(const t of PLANNER_SEED)t.owner='刘志豪';
 // 事项归属与手写正文分开保存，旧记录及自行修改的文字不被升级覆盖。
-window.PLANNER_LABELS={'创新大赛':'互联网+','职规赛':'职规','挑战杯':'挑战杯','大创与日常':'大创','活动承办':'活动承办','统筹与复盘':'处室统筹'};
+window.PLANNER_LABELS={'创新大赛':'互联网+','职规赛':'职规','挑战杯':'挑战杯','大创与日常':'大创','活动承办':'活动承办','统筹与复盘':'创院统筹'};
 window.plannerTaskTitle=function(t){
  const label=PLANNER_LABELS[t.category]||t.category;
  const title=String(t.title||'');
