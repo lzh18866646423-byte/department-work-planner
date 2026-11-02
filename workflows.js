@@ -68,4 +68,30 @@ window.plannerTaskTitle=function(t){
  if(title===label||title.startsWith(label+'｜')||title.startsWith(label+'：')||title.startsWith(label+':'))return title;
  return label+'｜'+title;
 };
+// 工作重要程度与“本月正赛关键节点”分开，审核、辅导、报送不据此标红。
+window.plannerIsKeyMilestone=function(t){
+ if(typeof t.keyMilestone==='boolean')return t.keyMilestone;
+ if(!['创新大赛','挑战杯','职规赛'].includes(t.category))return false;
+ return ['校赛','校级选拔','省赛','省赛现场决赛','国赛','全国总决赛','全国总决赛 / 归档'].includes(String(t.stage||'').trim());
+};
+window.PLANNER_TITLE_UPDATES={
+ '建议完成校赛，锁定省赛培育对象':'组织校赛，确定省赛推荐项目',
+ '推进校内评审与作品修改':'组织校赛，确定省赛推荐作品',
+ '跟踪省赛结果与后续推荐要求':'组织省赛参赛，跟踪评审结果',
+ '预留省赛现场准备窗口':'组织省赛现场决赛参赛',
+ '完成省赛衔接，跟踪晋级结果':'组织省赛参赛与晋级衔接',
+ '争取完成校内选拔与推荐材料准备':'组织校级选拔，确定省赛推荐选手',
+ '跟踪全国总决赛并整理案例':'组织全国总决赛参赛（晋级后执行）',
+ '按正式进度处理后续赛程并归档':'组织全国总决赛参赛（晋级后执行）',
+ '预留挑战杯国赛参赛窗口':'组织国赛参赛（晋级后执行）'
+};
+for(const t of PLANNER_SEED){t.keyMilestone=plannerIsKeyMilestone(t);if(PLANNER_TITLE_UPDATES[t.title])t.title=PLANNER_TITLE_UPDATES[t.title];}
+window.PLANNER_ACTION_UPDATES={
+ '根据实际进度处理补正、晋级与成果归档，不先假定获奖。':'按当届省赛正式通知组织参赛、现场答辩与师生保障，核对实际评审结果及后续推荐要求。',
+ '商议评审安排，核查原始数据、原创性、学生贡献和归口。':'组织校级评审与答辩，核查原始数据、原创性、学生贡献和归口，确定省赛推荐作品。',
+ '重点做实物与数据核对、问答训练和参赛保障，按当届通知调整月份。':'按当届省赛通知组织现场决赛参赛，落实实物展示、答辩、师生行程与参赛保障；月份随正式通知调整。',
+ '校赛评审后明确推荐排序、修改任务、材料版本与师生责任。':'组织校级评审与答辩，确认校赛结果和省赛推荐排序，再明确后续修改任务与材料版本。',
+ '实际入围则备赛；未入围则完成资料、反馈和后续培育安排。':'仅对实际晋级项目组织全国总决赛参赛，落实展示、答辩与参赛保障；未晋级项目转入复盘。'
+};
+for(const t of PLANNER_SEED){if(PLANNER_ACTION_UPDATES[t.action])t.action=PLANNER_ACTION_UPDATES[t.action];}
 
