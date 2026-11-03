@@ -4,7 +4,7 @@ window.WORKS=[
     "name": "中国国际大学生创新大赛",
     "cycle": "2027届 · 春季报名与选拔",
     "brief": "发动报名 → 院级审核与项目遴选 → 校赛 → 推荐报送 → 省赛 → 国赛",
-    "note": "建议开学后3月报名、4月复核与遴选、5月校赛、6月放假前准备推荐材料；省赛按用户提供的往年9月安排暂排，省赛结果明确后办理国赛推荐。10月国赛仍属历史参考，当届日期和报送截止待通知。",
+    "note": "3月报名、4月复核与遴选、5月校赛、6月集中审核；7月线上报送与补正，8月上旬线上对接、中下旬返岗后落实参赛准备。省赛按往年9月暂排，结果明确后衔接国赛；10月国赛仍属历史参考。",
     "source": 2
   },
   {
@@ -12,7 +12,7 @@ window.WORKS=[
     "name": "挑战杯 · 课外学术科技作品竞赛",
     "cycle": "2027届 · 大挑",
     "brief": "发动报名 → 院级审核 → 校赛 → 推荐报送 → 省赛 → 国赛",
-    "note": "建议春季开学后3月报名、院级推荐和校赛，4月报送；省赛5—6月、国赛10—11月沿用历史参考。常规国赛辅导放在9月，假期仅按上级截止对实际晋级作品线上办理。",
+    "note": "建议3月报名、院级推荐和校赛，4月报送；省赛5—6月、国赛10—11月沿用历史参考。暑期线上办理晋级作品材料核对与补正，集中指导结合8月中下旬返岗及师生返校情况安排，9月继续辅导定稿。",
     "source": 4
   },
   {
@@ -20,7 +20,7 @@ window.WORKS=[
     "name": "全国大学生职业规划大赛",
     "cycle": "第四届 · 2026.10—2027.04",
     "brief": "发动报名 → 院级选拔 → 校级选拔 → 推荐省赛 → 国赛",
-    "note": "报名审核和省赛集中指导尽量在寒假前完成，假期按正式截止线上补正。本届平台报名最晚2027年1月31日、省赛3月15日前完成、国赛4月；校内选拔具体时间以正式安排为准。",
+    "note": "1月上旬集中核验，假期继续平台提交和材料补正；2月上旬线上办理，中下旬返岗后衔接省赛备赛。本届平台最晚2027年1月31日、省赛3月15日前完成、国赛4月；校内具体节点按正式安排执行。",
     "source": 1
   },
   {
@@ -117,6 +117,20 @@ window.plannerMigrateInstitutionalState=function(state){
   if(!r||!next||r.category!==t.category)continue;
   t.termScheduleRevision=1;
   for(const [field,hash]of Object.entries(r.fields))if(hash===null?before[field]===undefined:typeof before[field]==='string'&&fp(before[field])===hash)t[field]=next[field];
+  if(before.year===r.year&&before.month===r.month){t.year=next.year;t.month=next.month;}
+ }
+ return state;
+};
+
+const migrateBeforeHolidayWork=window.plannerMigrateInstitutionalState;
+window.plannerMigrateInstitutionalState=function(state){
+ const original=new Map(state.tasks.map(t=>[t.id,{...t}]));migrateBeforeHolidayWork(state);
+ const fp=s=>{let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return s.length+':'+(h>>>0).toString(16);};const rules={"seed-11":{"category":"职规赛","year":2027,"month":1,"fields":{"action":"49:254712f3","dependency":"36:8b90cc49","period":"28:d8e3d5a"}},"seed-17":{"category":"职规赛","year":2027,"month":1,"fields":{"title":"12:fed1a82","action":"47:6e7ba42c","output":"11:5ae39515","dependency":"36:56b0d785","period":"22:3c1b874"}},"seed-30":{"category":"创新大赛","year":2027,"month":6,"fields":{"action":"51:e94fc83a","dependency":"47:9da838d9"}},"seed-34":{"category":"挑战杯","year":2027,"month":9,"fields":{"action":"48:e1b3a083","dependency":"33:ade8fe9c","period":"22:4e87ed2"}}};const target=new Map(PLANNER_SEED.map(t=>[t.id,t]));
+ for(const t of state.tasks){
+  const r=rules[t.id],before=original.get(t.id)||t,next=target.get(t.id);
+  if(t.holidayWorkRevision===1||!r||!next||r.category!==t.category)continue;
+  t.holidayWorkRevision=1;
+  for(const [field,hash]of Object.entries(r.fields))if(typeof before[field]==='string'&&fp(before[field])===hash)t[field]=next[field];
   if(before.year===r.year&&before.month===r.month){t.year=next.year;t.month=next.month;}
  }
  return state;
