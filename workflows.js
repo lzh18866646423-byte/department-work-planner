@@ -54,6 +54,7 @@ window.plannerTaskTitle=function(t){const label=PLANNER_LABELS[t.category]||t.ca
 window.plannerIsKeyMilestone=function(t){if(typeof t.keyMilestone==='boolean')return t.keyMilestone;if(!['创新大赛','挑战杯','职规赛'].includes(t.category))return false;return ['校赛','校级选拔','省赛','省赛现场决赛','国赛','全国总决赛','全国总决赛 / 归档'].includes(String(t.stage||'').trim());};
 window.PLANNER_TITLE_UPDATES={};window.PLANNER_ACTION_UPDATES={};
 window.plannerMigrateInstitutionalState=function(state){
+ if(state.ownerBlankRevision!==1){for(const t of state.tasks)if(t.owner.trim()===String.fromCharCode(21016,24535,35946))t.owner='';state.ownerBlankRevision=1;}
  const fp=text=>{let h=2166136261;for(let i=0;i<text.length;i++){h^=text.charCodeAt(i);h=Math.imul(h,16777619);}return text.length+':'+(h>>>0).toString(16);};
  const target=new Map(PLANNER_SEED.map(t=>[t.id,t]));
  const retired={"id":"seed-1","category":"统筹与复盘","title":["15:9b19d0b8"],"action":["70:faa04800"]};
