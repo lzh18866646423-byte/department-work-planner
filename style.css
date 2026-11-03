@@ -19,3 +19,6 @@
 .stage-row.is-complete .stage-body h3,.stage-row.is-complete .stage-date>strong,.stage-overview button.is-complete strong,.stage-overview button.is-complete span{color:#74816f}
 @media print{body{background:white}.rail,.header-actions,.toolbar,.detail,footer,dialog,#toast,.view-nav,#workPanel{display:none!important}main{margin:0;padding:0}header{margin-bottom:12px}h1{font-size:23px}.strategy{padding:10px;margin-bottom:12px}.strategy p,.intro{font-size:10px}.calendar{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.workspace{display:block!important}.month{break-inside:avoid;min-height:0;padding:9px!important;border:1px solid #bbb!important;box-shadow:none!important}.mini-task{font-size:9px}.month-theme{font-size:10px}.month-number{font-size:20px}.month-more{display:none}.section-label span{display:none}@page{size:A4 landscape;margin:10mm}}
 
+
+/* 条件正赛节点使用较浅字色，沿用无底色、无色条的强调方式。 */
+.mini-task.is-conditional,.task.is-conditional,.stage-overview button.is-conditional,.stage-row.is-conditional{--focus-text:#966a64}
