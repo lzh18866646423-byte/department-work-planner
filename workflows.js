@@ -4,7 +4,7 @@ window.WORKS=[
     "name": "中国国际大学生创新大赛",
     "cycle": "2027届 · 春季报名与选拔",
     "brief": "发动报名 → 院级审核与项目遴选 → 校赛 → 推荐报送 → 省赛 → 国赛",
-    "note": "3月报名、4月复核与遴选、5月校赛、6月推荐审核、7月报送补正、8月赛前准备；省赛按往年9月暂排，结果明确后衔接国赛。10月国赛仍属历史参考，具体节点以当届通知为准。",
+    "note": "3月报名登记，4月院审与项目遴选，5月校赛，5—6月赛后资格复核与公示推荐，7月报送补正，8月参赛准备；9月省赛及赛后国赛推荐，10月国赛、11月归档。省赛按用户提供的往年9月参考，具体提交期限随正式通知。",
     "source": 2
   },
   {
@@ -12,15 +12,15 @@ window.WORKS=[
     "name": "挑战杯 · 课外学术科技作品竞赛",
     "cycle": "2027届 · 大挑",
     "brief": "发动报名 → 院级审核 → 校赛 → 推荐报送 → 省赛 → 国赛",
-    "note": "建议3月报名、院级推荐和校赛，4月报送；省赛5—6月、国赛10—11月沿用历史参考。按实际晋级结果完成材料核对、补正和答辩准备，具体时间以当届通知为准。",
+    "note": "3月报名与院级审核，4月校赛及赛后公示报送，5月备赛，6月省赛；省赛结果明确后及时办理国赛推荐，9月备赛定稿，10—11月国赛及归档。4月校赛为建议窗口，若当届推荐截止提前须相应前移。",
     "source": 4
   },
   {
     "category": "职规赛",
     "name": "全国大学生职业规划大赛",
-    "cycle": "第四届 · 2026.10—2027.04",
+    "cycle": "本届及下一届 · 分周期安排",
     "brief": "发动报名 → 院级选拔 → 校级选拔 → 推荐省赛 → 国赛",
-    "note": "1月报名审核与推荐，2月材料完善与备赛指导。本届平台最晚2027年1月31日、省赛3月15日前完成、国赛4月；校内具体节点按正式安排执行。",
+    "note": "本届按10月报名、11月院级选拔、12月校赛、12月—1月赛后复核报送、2月备赛、3月省赛、4月国赛衔接。下一届10—12月单列报名、院级审核与校赛阶段；新届期限以新通知为准。",
     "source": 1
   },
   {
@@ -28,7 +28,7 @@ window.WORKS=[
     "name": "大学生创新创业训练计划",
     "cycle": "按立项批次分别执行",
     "brief": "通知申报 → 院级审核 → 校级评审 → 推荐立项 → 中期检查 → 结项 → 经费归档",
-    "note": "本校批次节点尚未查实。表内月份是内部准备和核查窗口；正式通知确认后，应按批次分别调整，不能把所有在研项目统一到同一个截止。",
+    "note": "新申报批次暂按3月受理、4月评审、5月推荐衔接；6月检查与毕业交接针对已到节点的在研项目，9月及11月按实际秋季和到期批次办理。各批次分别执行，不将新立项、检查和结项连成同一项目的统一进度。",
     "source": -1
   },
   {
@@ -141,5 +141,22 @@ window.plannerMigrateInstitutionalState=function(state){
  const original=new Map(state.tasks.map(t=>[t.id,{...t}]));migrateBeforePlainWording(state);
  const fp=s=>{let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return s.length+':'+(h>>>0).toString(16);};const rules={"seed-8":{"category":"挑战杯","fields":{"dependency":"35:6c572114"}},"seed-11":{"category":"职规赛","fields":{"action":"47:87100f10","dependency":"38:584b9580","period":"25:c37aa518"}},"seed-17":{"category":"职规赛","fields":{"title":"13:d63feee9","action":"49:beba5905","dependency":"35:82544c33","period":"23:d2c82f3"}},"seed-30":{"category":"创新大赛","fields":{"action":"56:f40b6208","dependency":"42:51a648f1","period":"22:1dd71633"}},"seed-34":{"category":"挑战杯","fields":{"action":"46:fd4bbbf7","dependency":"33:a87aa602","period":"21:a5d3a026"}},"phase-innovation-summer-report":{"category":"创新大赛","fields":{"title":"13:270ad6cd","action":"46:a6c1e59c","dependency":"34:c07c70e0","stage":"11:93dc7b7a","period":"19:3f7c1500","evidence":"120:63fbc20d"}},"phase-innovation-province-ready":{"category":"创新大赛","fields":{"action":"54:5126f737","dependency":"42:2849d487","period":"23:987e67cb","evidence":"120:63fbc20d"}}};const targets=new Map(PLANNER_SEED.map(t=>[t.id,t]));
  for(const t of state.tasks){const r=rules[t.id],next=targets.get(t.id),before=original.get(t.id)||t;if(t.plainWordingRevision===1||!r||!next||r.category!==t.category)continue;t.plainWordingRevision=1;for(const [k,hash]of Object.entries(r.fields))if(typeof before[k]==='string'&&fp(before[k])===hash)t[k]=next[k];}
+ return state;
+};
+
+const migrateBeforeTimelineReview=window.plannerMigrateInstitutionalState;
+window.plannerMigrateInstitutionalState=function(state){
+ const original=new Map(state.tasks.map(t=>[t.id,{...t}]));migrateBeforeTimelineReview(state);
+ const fp=v=>{const s=JSON.stringify(v);if(s===undefined)return 'undefined';let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return s.length+':'+(h>>>0).toString(16);};const rules={"phase-innovation-registration":{"category":"创新大赛","removed":true,"year":2027,"month":3,"title":["13:c755a33f"],"action":["45:d11e3838"],"fields":{"title":["13:c755a33f"],"action":["45:d11e3838"],"output":["13:2088ae00"],"dependency":["25:b8528ed4"],"stage":["11:458b2b58"],"period":["18:8a71c768"]}},"phase-innovation-review":{"category":"创新大赛","removed":true,"year":2027,"month":5,"title":["16:ce1a5ff7"],"action":["42:38df5dc5"],"fields":{"title":["16:ce1a5ff7"],"action":["42:38df5dc5"],"output":["17:43dfa975"],"dependency":["23:5a8b0c33"],"stage":["15:b2777a9d"],"period":["15:41916402"]}},"phase-career-review":{"category":"职规赛","removed":true,"year":2026,"month":12,"title":["16:758002ab"],"action":["46:99bb3faa"],"fields":{"title":["16:758002ab"],"action":["46:99bb3faa"],"output":["15:ba811d76"],"dependency":["27:2e45d98a"],"stage":["13:d6ab252d"],"period":["24:83b568d6"]}},"seed-8":{"category":"挑战杯","removed":false,"year":2027,"month":3,"title":["15:caa0c2e6","17:934145cc","15:e7286bcf","15:a88d784b"],"action":["43:8668e67d","34:fc4874f7","41:4725e233","49:9aed6aef"],"fields":{"period":["22:d7e58fad","18:f69e176e","13:fe1b3e31"]}},"seed-16":{"category":"挑战杯","removed":false,"year":2027,"month":3,"title":["12:20834107","15:c3b6009f","12:d78b5ac2","13:93e2c3f7"],"action":["40:53b69886","28:392dc526","43:899ffd3b","36:1a5e3a47"],"fields":{"period":["18:bf31eac6","16:2f02720c","17:fb8ea18f"]}},"seed-21":{"category":"挑战杯","removed":false,"year":2027,"month":3,"title":["15:1ed8786f","13:bdbf84a7"],"action":["40:44fd08c2","28:c6c05730"],"fields":{"period":["13:a90da536"],"dependency":["25:ce1a3f33"],"basis":["6:f682d074"]}},"seed-24":{"category":"挑战杯","removed":false,"year":2027,"month":4,"title":["15:1dbb19ab","13:761f9fd9"],"action":["30:18860c22"],"fields":{"title":["15:1dbb19ab","13:761f9fd9"],"action":["30:18860c22"],"stage":["11:f2079c76"],"period":["15:5bc24554"],"dependency":["24:95165310"],"basis":["6:f682d074"]}},"seed-28":{"category":"挑战杯","removed":false,"year":2027,"month":5,"title":["15:98e34786","16:d8fd7c39"],"action":["30:6205962a"],"fields":{"period":["13:bea8e1b0"]}},"seed-31":{"category":"挑战杯","removed":false,"year":2027,"month":6,"title":["15:33c852ba","15:76bcee59"],"action":["42:5969372a","28:fac0defb"],"fields":{"period":["17:1f160061"],"basis":["6:319ceab8"]}},"seed-34":{"category":"挑战杯","removed":false,"year":2027,"month":9,"title":["19:5a316be9","13:f50891a9","19:c3840ff3","19:7e25da9f"],"action":["34:50d35370","32:e0d9492d","34:315c8278","50:910899d3","48:424fecef"],"fields":{"stage":["13:c7d1d620"],"dependency":["24:55427ce5","22:4f70d30b","21:2d7a4596","35:43f8507a","35:3e5bc0"]}},"seed-20":{"category":"创新大赛","removed":false,"year":2027,"month":3,"title":["13:4d0febc1","13:d05cac04","17:b30578b1"],"action":["36:81199b09","37:88ca037b","33:7ea97dab","46:fe113bee"],"fields":{"title":["13:4d0febc1","13:d05cac04","17:b30578b1"],"action":["36:81199b09","37:88ca037b","33:7ea97dab","46:fe113bee"],"output":["14:a8ca432f","17:710aaea6","19:2a0f7de8"],"stage":["6:4c2d85a0"],"period":["19:86133476","13:a90da536"]}},"seed-27":{"category":"创新大赛","removed":false,"year":2027,"month":5,"title":["15:6bc9deff","17:876a6a79"],"action":["41:de9c6840","29:7f1586c2"],"fields":{"period":["15:aa892698"]}},"seed-30":{"category":"创新大赛","removed":false,"year":2027,"month":6,"title":["15:dc95688b","15:ff7d7495","16:eb417ea7"],"action":["37:4678b985","35:3bdc518e","53:9d53ade8","58:c223163e"],"fields":{"title":["15:dc95688b","15:ff7d7495","16:eb417ea7"],"action":["37:4678b985","35:3bdc518e","53:9d53ade8","58:c223163e"],"output":["20:350b0e3","16:46f87cc"],"stage":["13:1168191","11:bdb6ace5"],"period":["13:392d8ced","15:a76ff52e","24:c0be2d23"],"dependency":["22:b24c84c8","28:a55375","49:59ce141","44:845af249"]}},"seed-43":{"category":"创新大赛","removed":false,"year":2027,"month":10,"title":["13:2512adc8","20:666f74ae","18:c28ee47e"],"action":["26:d46883d2","30:2d50139f","41:428874c5"],"fields":{"period":["14:262b956f","17:23f5720e"]}},"seed-11":{"category":"职规赛","removed":false,"year":2027,"month":1,"title":["15:d0af48cb","15:ab7cca47"],"action":["35:54ce40c4","34:7428d0","38:2fa3289b","51:acccd1e3","49:e06d5e16"],"fields":{"title":["15:d0af48cb","15:ab7cca47"],"action":["35:54ce40c4","34:7428d0","38:2fa3289b","51:acccd1e3","49:e06d5e16"],"output":["17:6312f494","15:ff65b713"],"stage":["13:54845882"],"period":["20:3a1b928d","30:71646508","27:ddfa75ae"],"dependency":["26:ac2878a1","27:2a34d6df","38:807c2551","40:3f0a9fa6"]}},"seed-42":{"category":"职规赛","removed":false,"year":2027,"month":10,"title":["15:49561fec","15:a60cf0de"],"action":["29:d4a2a57e","31:6750be14","41:c6e7d139"],"fields":{"stage":["undefined"],"period":["undefined"],"evidence":["87:77e5511f"],"url":["72:56ae549e"]}},"seed-46":{"category":"职规赛","removed":false,"year":2027,"month":11,"title":["17:8f439e4f","14:5820c5fd","17:e08c5c37"],"action":["40:4d160206","28:9edb4b0d","41:4768e15d"],"fields":{"stage":["undefined"],"period":["undefined"],"evidence":["87:77e5511f"],"url":["72:56ae549e"]}},"seed-50":{"category":"职规赛","removed":false,"year":2027,"month":12,"title":["17:9a8fecf5","15:83d0f5a0"],"action":["37:af33f441","28:7c16675b"],"fields":{"stage":["undefined"],"period":["undefined"],"keyMilestone":["5:b069958","undefined"],"evidence":["87:77e5511f"],"url":["72:56ae549e"],"title":["17:9a8fecf5","15:83d0f5a0"]}},"seed-32":{"category":"大创与日常","removed":false,"year":2027,"month":6,"title":["18:7a3f238c","17:d55a3ae1","16:e9294ad"],"action":["45:1be0411e","27:53057548","49:4b9005d4"],"fields":{"stage":["13:f7099d91"],"action":["45:1be0411e","27:53057548","49:4b9005d4"],"dependency":["30:28371275","22:d064f50f"]}},"phase-dachuang-approval":{"category":"大创与日常","removed":false,"year":2027,"month":5,"title":["15:dae337fd","15:1e980204"],"action":["42:306740ab","44:19010ae8"],"fields":{"action":["42:306740ab","44:19010ae8"],"dependency":["19:6f33bb93"]}}};const target=new Map(PLANNER_SEED.map(t=>[t.id,t]));
+ for(const t of state.tasks){
+  if(t.timelineReviewRevision===1)continue;
+  const before=original.get(t.id)||t;let id=t.id,r=rules[id];
+  if(!r){const found=Object.entries(rules).find(([,x])=>x.category===t.category&&x.title.includes(fp(before.title))&&x.action.includes(fp(before.action)));if(found)[id,r]=found;}
+  if(!r||r.category!==t.category)continue;t.timelineReviewRevision=1;
+  if(r.removed){if(Object.entries(r.fields).every(([k,h])=>h.includes(fp(before[k])))&&before.status==='未开始'&&!t.owner.trim()&&before.year===r.year&&before.month===r.month){t.deleted=true;t.retiredReason='全流程排期复核：重复动作已合并，规定审核和报送要求保留在相应阶段';}continue;}
+  const next=target.get(id);if(!next)continue;
+  for(const [k,h]of Object.entries(r.fields))if(h.includes(fp(before[k])))t[k]=next[k];
+  if(before.year===r.year&&before.month===r.month){t.year=next.year;t.month=next.month;}
+ }
  return state;
 };
