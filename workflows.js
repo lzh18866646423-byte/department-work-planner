@@ -2,58 +2,37 @@ window.WORKS=[
   {
     "category": "创新大赛",
     "name": "中国国际大学生创新大赛",
-    "cycle": "2027届 · 春季报名与选拔",
-    "brief": "发动报名 → 院级审核与项目遴选 → 校赛 → 推荐报送 → 省赛 → 国赛 → 学分认定",
-    "note": "3月报名登记，4月院审与项目遴选，5月校赛，5—6月赛后资格复核与公示推荐，7月报送补正，8月参赛准备；9月省赛及赛后国赛推荐，10月国赛、11月归档。省赛按用户提供的往年9月参考，具体提交期限随正式通知。 各赛级正式结果明确后，按学校规定衔接获奖、获选学分认定；表中赛后月份为办理窗口，可随结果和认定批次调整。",
-    "source": 2
+    "cycle": "2027届 · 春季报名与选拔"
   },
   {
     "category": "挑战杯",
     "name": "挑战杯 · 课外学术科技作品竞赛",
-    "cycle": "2027届 · 大挑",
-    "brief": "发动报名 → 院级审核 → 校赛 → 推荐报送 → 省赛 → 国赛 → 学分认定",
-    "note": "3月报名与院级审核，4月校赛及赛后公示报送，5月备赛，6月省赛；省赛结果明确后及时办理国赛推荐，9月备赛定稿，10—11月国赛及归档。4月校赛为建议窗口，若当届推荐截止提前须相应前移。 各赛级正式结果明确后，按学校规定衔接获奖、获选学分认定；表中赛后月份为办理窗口，可随结果和认定批次调整。",
-    "source": 4
+    "cycle": "2027届 · 大挑"
   },
   {
     "category": "职规赛",
     "name": "全国大学生职业规划大赛",
-    "cycle": "本届及下一届 · 分周期安排",
-    "brief": "发动报名 → 院级选拔 → 校级选拔 → 推荐省赛 → 国赛 → 学分认定",
-    "note": "本届按10月报名、11月院级选拔、12月校赛、12月—1月赛后复核报送、2月备赛、3月省赛、4月国赛衔接。下一届10—12月单列报名、院级审核与校赛阶段；新届期限以新通知为准。 各赛级正式结果明确后，按学校规定衔接获奖、获选学分认定；表中赛后月份为办理窗口，可随结果和认定批次调整。",
-    "source": 1
+    "cycle": "本届及下一届 · 分周期安排"
   },
   {
     "category": "大创与日常",
     "name": "大学生创新创业训练计划",
-    "cycle": "按立项批次分别执行",
-    "brief": "通知申报 → 院级审核 → 校级评审 → 推荐立项 → 中期检查 → 结项 → 经费归档",
-    "note": "新申报批次暂按3月受理、4月评审、5月推荐衔接；6月检查与毕业交接针对已到节点的在研项目，9月及11月按实际秋季和到期批次办理。各批次分别执行，不将新立项、检查和结项连成同一项目的统一进度。",
-    "source": -1
+    "cycle": "按立项批次分别执行"
   },
   {
     "category": "活动承办",
     "name": "市级、省级活动承办",
-    "cycle": "具体活动确认后编排",
-    "brief": "活动确认后，按实际事项补充筹备、审批、实施与归档节点",
-    "note": "目前没有已确定的具体活动和举办月份，月历暂不预置承办任务。确认活动后，可在此新增阶段。",
-    "source": 0
+    "cycle": "具体活动确认后编排"
   },
   {
     "category": "统筹与复盘",
     "name": "创院年度工作与成果管理",
-    "cycle": "年度分工、资源、成果",
-    "brief": "年度获奖数据征集 → 核对汇总 → 年度总结与下年计划",
-    "note": "11月征集核对各学院各类比赛获奖情况，12月汇总确认，并完成年度工作总结。",
-    "source": 0
+    "cycle": "年度分工、资源、成果"
   },
   {
     "category": "成果管理",
     "name": "竞赛成果统计、认定与奖励",
-    "cycle": "赛后认定 · 年末统计 · 按通知申报",
-    "brief": "赛后学分认定 · 11—12月获奖统计 · 教师职称评审材料 · 学科类竞赛奖励申报",
-    "note": "11—12月按学院汇总各类比赛获奖情况；各大赛事完赛后按规定办理获奖、获选学分认定。职称评审与奖励申报按学校通知确定办理月份，尚未确定的列入“按通知办理”。",
-    "source": 11
+    "cycle": "赛后认定 · 年末统计 · 按通知申报"
   }
 ];
 window.PLANNER_LABELS={"创新大赛":"互联网+","职规赛":"职规","挑战杯":"挑战杯","大创与日常":"大创","活动承办":"活动承办","统筹与复盘":"创院统筹","成果管理":"成果管理"};
@@ -171,3 +150,6 @@ window.plannerMigrateInstitutionalState=function(state){
 
 const migrateBeforeAchievementWork=window.plannerMigrateInstitutionalState;
 window.plannerMigrateInstitutionalState=function(state){const original=new Map(state.tasks.map(t=>[t.id,{...t}]));migrateBeforeAchievementWork(state);const rules=[{"id":"seed-45","category":"统筹与复盘","fields":{"title":"完成年度成果统计与经费执行核对","action":"汇总赛事成绩、项目培育、大创管理和活动承办成果，核对年度经费执行及未完成事项。","output":"年度成果统计表、经费执行记录、未完成事项清单","dependency":"不以材料数量替代业务成果","evidence":"围绕赛事组织、项目培育、大创项目及经费管理、活动承办编排年度任务。具体时间、经费与承办安排以正式通知及校内审批为准。","stage":"年度成果统计","period":"2027年11月（建议）","process":null,"displayOrder":null}},{"id":"seed-48","category":"统筹与复盘","fields":{"action":"总结年度赛事、项目管理、培育和活动合作工作，归档业务成果，编制下一年度重点任务、资源需求及职责安排。"}},{"id":"achievement-credit-career","category":"职规赛","fields":{"stage":"赛后学分认定"}},{"id":"achievement-credit-innovation","category":"创新大赛","fields":{"stage":"赛后学分认定"}},{"id":"achievement-credit-challenge","category":"挑战杯","fields":{"stage":"赛后学分认定"}}];for(const r of rules){const t=state.tasks.find(t=>t.id===r.id),next=PLANNER_SEED.find(t=>t.id===r.id);if(!t||t.achievementRevision===2||t.category!==r.category)continue;const before=original.get(t.id)||t;for(const [k,old]of Object.entries(r.fields))if(old===null?before[k]===undefined:before[k]===old)t[k]=next[k];t.achievementRevision=2;}return state;};
+
+const migrateBeforeRemovingExplanations=window.plannerMigrateInstitutionalState;
+window.plannerMigrateInstitutionalState=function(state){migrateBeforeRemovingExplanations(state);for(const t of state.tasks)for(const field of ["basis","dependency","evidence","url","period"])delete t[field];return state;};
