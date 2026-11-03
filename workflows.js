@@ -3,24 +3,24 @@ window.WORKS=[
     "category": "创新大赛",
     "name": "中国国际大学生创新大赛",
     "cycle": "2027届 · 春季报名与选拔",
-    "brief": "发动报名 → 院级审核与项目遴选 → 校赛 → 推荐报送 → 省赛 → 国赛",
-    "note": "3月报名登记，4月院审与项目遴选，5月校赛，5—6月赛后资格复核与公示推荐，7月报送补正，8月参赛准备；9月省赛及赛后国赛推荐，10月国赛、11月归档。省赛按用户提供的往年9月参考，具体提交期限随正式通知。",
+    "brief": "发动报名 → 院级审核与项目遴选 → 校赛 → 推荐报送 → 省赛 → 国赛 → 学分认定",
+    "note": "3月报名登记，4月院审与项目遴选，5月校赛，5—6月赛后资格复核与公示推荐，7月报送补正，8月参赛准备；9月省赛及赛后国赛推荐，10月国赛、11月归档。省赛按用户提供的往年9月参考，具体提交期限随正式通知。 各赛级正式结果明确后，按学校规定衔接获奖、获选学分认定；表中赛后月份为办理窗口，可随结果和认定批次调整。",
     "source": 2
   },
   {
     "category": "挑战杯",
     "name": "挑战杯 · 课外学术科技作品竞赛",
     "cycle": "2027届 · 大挑",
-    "brief": "发动报名 → 院级审核 → 校赛 → 推荐报送 → 省赛 → 国赛",
-    "note": "3月报名与院级审核，4月校赛及赛后公示报送，5月备赛，6月省赛；省赛结果明确后及时办理国赛推荐，9月备赛定稿，10—11月国赛及归档。4月校赛为建议窗口，若当届推荐截止提前须相应前移。",
+    "brief": "发动报名 → 院级审核 → 校赛 → 推荐报送 → 省赛 → 国赛 → 学分认定",
+    "note": "3月报名与院级审核，4月校赛及赛后公示报送，5月备赛，6月省赛；省赛结果明确后及时办理国赛推荐，9月备赛定稿，10—11月国赛及归档。4月校赛为建议窗口，若当届推荐截止提前须相应前移。 各赛级正式结果明确后，按学校规定衔接获奖、获选学分认定；表中赛后月份为办理窗口，可随结果和认定批次调整。",
     "source": 4
   },
   {
     "category": "职规赛",
     "name": "全国大学生职业规划大赛",
     "cycle": "本届及下一届 · 分周期安排",
-    "brief": "发动报名 → 院级选拔 → 校级选拔 → 推荐省赛 → 国赛",
-    "note": "本届按10月报名、11月院级选拔、12月校赛、12月—1月赛后复核报送、2月备赛、3月省赛、4月国赛衔接。下一届10—12月单列报名、院级审核与校赛阶段；新届期限以新通知为准。",
+    "brief": "发动报名 → 院级选拔 → 校级选拔 → 推荐省赛 → 国赛 → 学分认定",
+    "note": "本届按10月报名、11月院级选拔、12月校赛、12月—1月赛后复核报送、2月备赛、3月省赛、4月国赛衔接。下一届10—12月单列报名、院级审核与校赛阶段；新届期限以新通知为准。 各赛级正式结果明确后，按学校规定衔接获奖、获选学分认定；表中赛后月份为办理窗口，可随结果和认定批次调整。",
     "source": 1
   },
   {
@@ -43,12 +43,20 @@ window.WORKS=[
     "category": "统筹与复盘",
     "name": "创院年度工作与成果管理",
     "cycle": "年度分工、资源、成果",
-    "brief": "年度成果统计 → 年度总结与下年计划",
-    "note": "保留年度成果统计和总结，不另设固定月份的阶段评估、资源清单或经费方案。",
+    "brief": "年度获奖数据征集 → 核对汇总 → 年度总结与下年计划",
+    "note": "11月征集核对各学院各类比赛获奖情况，12月汇总确认，并完成年度工作总结。",
     "source": 0
+  },
+  {
+    "category": "成果管理",
+    "name": "竞赛成果统计、认定与奖励",
+    "cycle": "赛后认定 · 年末统计 · 按通知申报",
+    "brief": "赛后学分认定 · 11—12月获奖统计 · 教师职称评审材料 · 学科类竞赛奖励申报",
+    "note": "11—12月按学院汇总各类比赛获奖情况；各大赛事完赛后按规定办理获奖、获选学分认定。职称评审与奖励申报按学校通知确定办理月份，尚未确定的列入“按通知办理”。",
+    "source": 11
   }
 ];
-window.PLANNER_LABELS={"创新大赛":"互联网+","职规赛":"职规","挑战杯":"挑战杯","大创与日常":"大创","活动承办":"活动承办","统筹与复盘":"创院统筹"};
+window.PLANNER_LABELS={"创新大赛":"互联网+","职规赛":"职规","挑战杯":"挑战杯","大创与日常":"大创","活动承办":"活动承办","统筹与复盘":"创院统筹","成果管理":"成果管理"};
 
 window.plannerTaskTitle=function(t){const label=PLANNER_LABELS[t.category]||t.category,title=String(t.title||'');if(title===label||title.startsWith(label+'｜')||title.startsWith(label+'：')||title.startsWith(label+':'))return title;return label+'｜'+title;};
 window.plannerIsKeyMilestone=function(t){if(typeof t.keyMilestone==='boolean')return t.keyMilestone;if(!['创新大赛','挑战杯','职规赛'].includes(t.category))return false;return ['校赛','校级选拔','省赛','省赛现场决赛','国赛','全国总决赛','全国总决赛 / 归档'].includes(String(t.stage||'').trim());};
@@ -160,3 +168,6 @@ window.plannerMigrateInstitutionalState=function(state){
  }
  return state;
 };
+
+const migrateBeforeAchievementWork=window.plannerMigrateInstitutionalState;
+window.plannerMigrateInstitutionalState=function(state){const original=new Map(state.tasks.map(t=>[t.id,{...t}]));migrateBeforeAchievementWork(state);const rules=[{"id":"seed-45","category":"统筹与复盘","fields":{"title":"完成年度成果统计与经费执行核对","action":"汇总赛事成绩、项目培育、大创管理和活动承办成果，核对年度经费执行及未完成事项。","output":"年度成果统计表、经费执行记录、未完成事项清单","dependency":"不以材料数量替代业务成果","evidence":"围绕赛事组织、项目培育、大创项目及经费管理、活动承办编排年度任务。具体时间、经费与承办安排以正式通知及校内审批为准。","stage":"年度成果统计","period":"2027年11月（建议）","process":null,"displayOrder":null}},{"id":"seed-48","category":"统筹与复盘","fields":{"action":"总结年度赛事、项目管理、培育和活动合作工作，归档业务成果，编制下一年度重点任务、资源需求及职责安排。"}},{"id":"achievement-credit-career","category":"职规赛","fields":{"stage":"赛后学分认定"}},{"id":"achievement-credit-innovation","category":"创新大赛","fields":{"stage":"赛后学分认定"}},{"id":"achievement-credit-challenge","category":"挑战杯","fields":{"stage":"赛后学分认定"}}];for(const r of rules){const t=state.tasks.find(t=>t.id===r.id),next=PLANNER_SEED.find(t=>t.id===r.id);if(!t||t.achievementRevision===2||t.category!==r.category)continue;const before=original.get(t.id)||t;for(const [k,old]of Object.entries(r.fields))if(old===null?before[k]===undefined:before[k]===old)t[k]=next[k];t.achievementRevision=2;}return state;};
