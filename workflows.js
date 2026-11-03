@@ -1,97 +1,70 @@
 window.WORKS=[
-{category:'创新大赛',name:'中国国际大学生创新大赛',cycle:'2027届 · 2026年秋起准备',brief:'提前培育 → 发动报名 → 院级审核 → 校赛 → 推荐报送 → 省赛 → 国赛',note:'建议3月发动、4月院级审核、4—5月校赛；6—7月省赛窗口及9—10月国赛窗口参考2025年，2027正式安排未发布或未核实。',source:3},
-{category:'挑战杯',name:'挑战杯 · 课外学术科技作品竞赛',cycle:'2027届 · 大挑',brief:'作品培育 → 征集 → 院级审核 → 校赛 → 省赛 → 国赛',note:'按课外学术科技作品竞赛准备。建议3月完成校赛、4月推荐准备；省赛5—6月、国赛10—11月是2025年历史参照，不能作为2027已定赛期。',source:4},
-{category:'职规赛',name:'全国大学生职业规划大赛',cycle:'第四届 · 2026.10—2027.04',brief:'发动报名 → 院级选拔 → 校级选拔 → 推荐省赛 → 国赛',note:'本届全国报名不晚于2027年1月31日，省赛3月15日前完成，国赛4月；本校及山东更早的报名、推荐时间待核。已过去的10月列为核查阶段，不记作已完成。',source:1},
-{category:'大创与日常',name:'大学生创新创业训练计划',cycle:'按立项批次分别执行',brief:'通知申报 → 院级审核 → 校级评审 → 推荐立项 → 中期检查 → 结项 → 经费归档',note:'本校批次节点尚未查实。表内月份是内部准备和核查窗口；正式通知确认后，应按批次分别调整，不能把所有在研项目统一到同一个截止。',source:-1},
-{category:'活动承办',name:'市级、省级活动承办',cycle:'年度机会对接 · 实施月待确认',brief:'机会调查 → 正式沟通 → 承办确认 → 方案审批 → 实施 → 复盘',note:'先核对主办方工作安排与学校条件。实施月份尚未确定；5月仅为条件检查窗口，取得确认后再安排实际举办月份。',source:0},
-{category:'统筹与复盘',name:'创院统筹与年度复盘',cycle:'年度分工、资源、成果',brief:'业务摸底 → 职责分工 → 资源申请 → 阶段复盘 → 年度收口',note:'这是创院业务安排。负责人默认登记刘志豪，可按实际分工修改姓名；预算以批准结果为准。',source:0}
+  {
+    "category": "创新大赛",
+    "name": "中国国际大学生创新大赛",
+    "cycle": "2027届 · 2026年秋起准备",
+    "brief": "提前培育 → 发动报名 → 院级审核 → 校赛 → 推荐报送 → 省赛 → 国赛",
+    "note": "建议3月发动、4月院级审核、4—5月校赛；6—7月省赛与10月国赛参考2025年实际进程。2027正式安排未核实，发布后整体校准。",
+    "source": 3
+  },
+  {
+    "category": "挑战杯",
+    "name": "挑战杯 · 课外学术科技作品竞赛",
+    "cycle": "2027届 · 大挑",
+    "brief": "作品培育 → 征集 → 院级审核 → 校赛 → 省赛 → 国赛",
+    "note": "按课外学术科技作品竞赛准备。建议3月完成校赛、4月推荐准备；省赛5—6月、国赛10—11月是2025年历史参照，不能作为2027已定赛期。",
+    "source": 4
+  },
+  {
+    "category": "职规赛",
+    "name": "全国大学生职业规划大赛",
+    "cycle": "第四届 · 2026.10—2027.04",
+    "brief": "发动报名 → 院级选拔 → 校级选拔 → 推荐省赛 → 国赛",
+    "note": "本届2026年10月启动，平台报名最晚2027年1月31日、省赛3月15日前完成、国赛4月；院级与校级选拔具体期限以本校和山东省正式安排为准。",
+    "source": 1
+  },
+  {
+    "category": "大创与日常",
+    "name": "大学生创新创业训练计划",
+    "cycle": "按立项批次分别执行",
+    "brief": "通知申报 → 院级审核 → 校级评审 → 推荐立项 → 中期检查 → 结项 → 经费归档",
+    "note": "本校批次节点尚未查实。表内月份是内部准备和核查窗口；正式通知确认后，应按批次分别调整，不能把所有在研项目统一到同一个截止。",
+    "source": -1
+  },
+  {
+    "category": "活动承办",
+    "name": "市级、省级活动承办",
+    "cycle": "年度机会对接 · 实施月待确认",
+    "brief": "机会调查 → 正式沟通 → 承办确认 → 方案审批 → 实施 → 复盘",
+    "note": "承办任务经主办方确认及校内审批后执行，举办月份以正式安排为准。5月为承办筹备预留窗口。",
+    "source": 0
+  },
+  {
+    "category": "统筹与复盘",
+    "name": "创院年度工作与成果管理",
+    "cycle": "年度分工、资源、成果",
+    "brief": "年度任务安排 → 经费与专家服务 → 阶段评估 → 成果统计 → 年度总结",
+    "note": "统筹年度工作计划、赛事资源与经费安排、业务成果统计及年度总结。经费按学校审批要求执行。",
+    "source": 0
+  }
 ];
-PLANNER_SOURCES.push({title:'2025年挑战杯山东省赛 · 赛事官网记录',url:'https://2025.tiaozhanbei.net/d49/media_report?page=2',text:'赛事官网记录：2025年山东省课外学术科技作品竞赛6月6日闭幕。用于预留5—6月省赛准备窗口，2027年节点待当届通知。'}, {title:'2025年挑战杯国赛 · 清华大学官方记录',url:'https://www.tsinghua.edu.cn/info/1182/122323.htm',text:'2025年全国决赛与相关活动于10月31日至11月3日举行。仅为2027国赛秋季预留窗口的历史参照。'});
-function tag(title,stage,period){const t=PLANNER_SEED.find(t=>t.title===title);if(t){t.stage=stage;t.period=period;}}
-tag('复盘已有获奖项目，走访教师与学生','种子项目摸排','2026年11月—2027年2月');
-tag('启动校内征集与规则说明','发动报名','2027年3月（建议）');
-tag('完成初评与重点项目诊断','院级审核 / 初评','2027年4月（建议）');
-tag('建议完成校赛，锁定省赛培育对象','校赛','2027年4—5月（建议）');
-tag('核对省赛推荐与网评报送窗口','省赛推荐 / 网评','2027年6月（往年参考）');
-tag('预留省赛现场准备窗口','省赛现场决赛','2027年7月（往年参考）');
-tag('跟踪晋级通知，按差距安排提升','国赛推荐 / 提升','2027年8—9月（建议）');
-tag('按正式进度处理后续赛程并归档','全国总决赛','2027年9—10月预留（待核）');
-tag('整理年度案例，启动下一年种子项目挖掘','赛后归档 / 下届培育','2027年10—11月（建议）');
-tag('核对大挑规则并布置寒假科研任务','作品征集 / 规则核对','2026年12月—2027年1月');
-tag('收集初稿并核对春季省赛通知','院级审核','2027年2月—3月（建议）');
-tag('推进校内评审与作品修改','校赛','2027年3月（建议）');
-tag('完成推荐准备与合规复核','公示 / 推荐报送','2027年4月（往年参考）');
-tag('按省赛通知开展答辩训练与补正','省赛备赛 / 材料补正','2027年5月（建议）');
-tag('跟踪省赛结果与后续推荐要求','省赛','2027年5—6月（往年参考）');
-tag('对实际晋级作品继续提升','国赛推荐 / 作品提升','2027年7—9月（建议）');
-tag('立即核对本届校赛、省赛安排','院级选拔 / 报名审核','2026年11月（建议）');
-tag('争取完成校内选拔与推荐材料准备','校级选拔','2026年12月（建议）');
-tag('核对报名完成，衔接省赛推荐','报名 / 推荐审核收口','2027年1月（全国最晚1月31日）');
-tag('对入选选手开展省赛训练','省赛备赛','2027年2月（建议）');
-tag('完成省赛衔接，跟踪晋级结果','省赛','2027年3月（最晚3月15日前）');
-tag('跟踪全国总决赛并整理案例','全国总决赛 / 归档','2027年4月（正式节点）');
-tag('跟看大创报销，核实年度业务日历','历史批次 / 经费流程核查','2026年11月（先核通知）');
-tag('核对开学后申报、检查、结项任务','申报准备 / 批次核查','2027年2月（待核实）');
-tag('依正式通知组织项目申报或检查','申报审核 / 校级评审','2027年4月（待核实）');
-tag('核对学期末项目进度与毕业生交接','中期检查 / 项目交接','2027年6月（待核实）');
-tag('核对新学期申报、结项及报销通知','结项准备 / 批次核查','2027年9月（待核实）');
-tag('清理到期任务和经费材料缺项','结项 / 经费归档','2027年11月（待核实）');
-tag('整理市、省活动机会与承办条件','机会调查','2026年11月');
-tag('找到一个值得正式沟通的合作事项','正式沟通','2026年12月');
-tag('把活动意向推进到具体条件','承办条件确认','2027年3月（建议）');
-tag('对已确认机会形成执行方案','方案审批 / 实施前检查','2027年5月（检查窗口，非举办月）');
-tag('评估合作成果，准备下一年度对接','活动复盘 / 机会调整','2027年10月（建议）');
-tag('与王义霖梳理在办业务和历史节点','业务摸底 / 分工确认','2026年11月');
-tag('提出有对象、有交付的资源申请','资源申请','2026年12月（建议）');
-tag('复盘上半年投入，调整秋季重点','阶段复盘','2027年8月（建议）');
-tag('形成年度成果、投入与问题对照','年度成果核对','2027年11月（建议）');
-tag('年度收口，确定下一年排期与分工','年度收口','2027年12月（建议）');
-function phase(id,c,y,m,stage,title,action,output,dependency,basis,source,period){const s=PLANNER_SOURCES[source];PLANNER_SEED.push({id:'phase-'+id,year:y,month:m,category:c,stage,period,title,action,output,dependency,basis,evidence:s?s.text:'建议内部准备窗口，按本校正式通知核对动作、顺序及办理期限。',url:s?s.url:'',important:true,owner:'刘志豪',status:'未开始',deleted:false});}
-phase('innovation-registration','创新大赛',2027,3,'报名 / 平台登记','组织报名与参赛资格核验','明确各赛道资格、团队成员和实际贡献；有平台开放后核对登记。预征集不得代替平台正式报名。','报名台账、资格核验清单','新届规则及平台开放时间待核；校内征集可先行准备','建议排期',3,'2027年3—5月（随平台安排）');
-phase('innovation-review','创新大赛',2027,5,'校内公示 / 推荐资格复核','校赛后复核推荐资格与规定材料','按当届通知核对推荐名额、排序、公示时长、签章与附件；逐一核对教师参与和学生贡献。','推荐材料核查表、公示和签章记录','校赛结果确认；公示要求、时长以当届通知为准','建议排期',3,'2027年5—6月（建议）');
-phase('challenge-national','挑战杯',2027,10,'全国总决赛','预留挑战杯国赛参赛窗口','仅对实际晋级作品落实材料、展示、问答与参赛保障；未晋级则转入成果复盘。','国赛参赛或复盘材料','2025国赛10月31日至11月3日；2027具体时间待核','往年参考',7,'2027年10—11月（往年参考）');
-phase('challenge-archive','挑战杯',2027,11,'赛后归档','归档挑战杯成果与后续研究计划','核对实际结果、反馈、证书和作品版本；对仍有基础的作品制定持续研究任务。','结果台账、作品档案、持续研究建议','以实际参赛结果为准','建议排期',4,'2027年11—12月（建议）');
-phase('career-launch','职规赛',2026,10,'发动报名','核查本届职规赛启动与校内动员','教育部已于10月启动，核查本校是否已发布通知、是否已动员报名；缺项立即转入11月补办。','校内启动通知、赛道说明、学院联络表','10月为已过去的核查阶段，未核实不记为已完成','正式节点',1,'2026年10月启动；当前核查补缺');
-phase('career-review','职规赛',2026,12,'资格复核 / 校内推荐','校赛后完成参赛资格和材料审查','按正式规定审核在校身份、赛道资格、指导教师实质参与、材料原创与意识形态等；核对推荐要求。','审核记录、推荐名单及材料包','如有公示要求按山东和本校通知执行；不得自设公示天数','正式节点',1,'2026年12月—2027年1月（内部建议）');
-phase('dachuang-launch','大创与日常',2027,3,'发布申报 / 学院发动','按批次发布大创申报并组织院级审核','调取本校正式通知后组织选题、组队、导师确认、申请书和预算初审，逐批记录截止。','学院推荐汇总、申报书及审核记录','3月只是内部准备窗口，正式申报月份待本校文件核定','待核实',-1,'2027年3月准备；实际批次时间待核');
-phase('dachuang-approval','大创与日常',2027,5,'推荐立项 / 实施启动','跟踪大创推荐立项与项目实施','根据校级评审、上级推荐和正式立项结果分别记录状态；获批后明确实施计划与经费使用要求。','推荐回执、正式立项记录、实施计划','5月为内部预留；推荐不等于立项获批','待核实',-1,'2027年5月预留；实际时间待核');
-phase('activity-run','活动承办',2027,5,'活动实施（举办月待确认）','确认实际举办月后执行活动','取得主办方与校内批准后录入实际举办月份；落实场地、预算、人员、安全、宣传及成果交付。','审批与执行记录、活动成果材料','当前5月只承载确认任务，不代表5月举办；请获批后修改月份','待核实',0,'实际举办月份待主办方确认');
-PLANNER_SOURCES.push({title:'2025年创新大赛全国总决赛 · 教育部记录',url:'https://www.moe.gov.cn/jyb_zzjg/huodong/202510/t20251015_1416913.html',text:'教育部记录2025年10月15日举行创新大赛冠军争夺赛。实际全国总决赛在10月举行，优先于早期校赛通知所列的9月预期。本表2027年10月为往年参照，仍待新届通知。'});
-const national=PLANNER_SEED.find(t=>t.stage==='全国总决赛'&&t.category==='创新大赛');if(national){national.month=10;national.period='2027年10月（2025实际赛期参照）';national.basis='往年参考';national.evidence=PLANNER_SOURCES[8].text;national.url=PLANNER_SOURCES[8].url;}
-WORKS[0].note='建议3月发动、4月院级审核、4—5月校赛；6—7月省赛与10月国赛参考2025年实际进程。2027正式安排未核实，发布后整体校准。';
-for(const t of PLANNER_SEED)t.owner='刘志豪';
-// 事项归属与手写正文分开保存，旧记录及自行修改的文字不被升级覆盖。
-window.PLANNER_LABELS={'创新大赛':'互联网+','职规赛':'职规','挑战杯':'挑战杯','大创与日常':'大创','活动承办':'活动承办','统筹与复盘':'创院统筹'};
-window.plannerTaskTitle=function(t){
- const label=PLANNER_LABELS[t.category]||t.category;
- const title=String(t.title||'');
- if(title===label||title.startsWith(label+'｜')||title.startsWith(label+'：')||title.startsWith(label+':'))return title;
- return label+'｜'+title;
-};
-// 工作重要程度与“本月正赛关键节点”分开，审核、辅导、报送不据此标红。
-window.plannerIsKeyMilestone=function(t){
- if(typeof t.keyMilestone==='boolean')return t.keyMilestone;
- if(!['创新大赛','挑战杯','职规赛'].includes(t.category))return false;
- return ['校赛','校级选拔','省赛','省赛现场决赛','国赛','全国总决赛','全国总决赛 / 归档'].includes(String(t.stage||'').trim());
-};
-window.PLANNER_TITLE_UPDATES={
- '建议完成校赛，锁定省赛培育对象':'组织校赛，确定省赛推荐项目',
- '推进校内评审与作品修改':'组织校赛，确定省赛推荐作品',
- '跟踪省赛结果与后续推荐要求':'组织省赛参赛，跟踪评审结果',
- '预留省赛现场准备窗口':'组织省赛现场决赛参赛',
- '完成省赛衔接，跟踪晋级结果':'组织省赛参赛与晋级衔接',
- '争取完成校内选拔与推荐材料准备':'组织校级选拔，确定省赛推荐选手',
- '跟踪全国总决赛并整理案例':'组织全国总决赛参赛（晋级后执行）',
- '按正式进度处理后续赛程并归档':'组织全国总决赛参赛（晋级后执行）',
- '预留挑战杯国赛参赛窗口':'组织国赛参赛（晋级后执行）'
-};
-for(const t of PLANNER_SEED){t.keyMilestone=plannerIsKeyMilestone(t);if(PLANNER_TITLE_UPDATES[t.title])t.title=PLANNER_TITLE_UPDATES[t.title];}
-window.PLANNER_ACTION_UPDATES={
- '根据实际进度处理补正、晋级与成果归档，不先假定获奖。':'按当届省赛正式通知组织参赛、现场答辩与师生保障，核对实际评审结果及后续推荐要求。',
- '商议评审安排，核查原始数据、原创性、学生贡献和归口。':'组织校级评审与答辩，核查原始数据、原创性、学生贡献和归口，确定省赛推荐作品。',
- '重点做实物与数据核对、问答训练和参赛保障，按当届通知调整月份。':'按当届省赛通知组织现场决赛参赛，落实实物展示、答辩、师生行程与参赛保障；月份随正式通知调整。',
- '校赛评审后明确推荐排序、修改任务、材料版本与师生责任。':'组织校级评审与答辩，确认校赛结果和省赛推荐排序，再明确后续修改任务与材料版本。',
- '实际入围则备赛；未入围则完成资料、反馈和后续培育安排。':'仅对实际晋级项目组织全国总决赛参赛，落实展示、答辩与参赛保障；未晋级项目转入复盘。'
-};
-for(const t of PLANNER_SEED){if(PLANNER_ACTION_UPDATES[t.action])t.action=PLANNER_ACTION_UPDATES[t.action];}
+window.PLANNER_LABELS={"创新大赛":"互联网+","职规赛":"职规","挑战杯":"挑战杯","大创与日常":"大创","活动承办":"活动承办","统筹与复盘":"创院统筹"};
 
+window.plannerTaskTitle=function(t){const label=PLANNER_LABELS[t.category]||t.category,title=String(t.title||'');if(title===label||title.startsWith(label+'｜')||title.startsWith(label+'：')||title.startsWith(label+':'))return title;return label+'｜'+title;};
+window.plannerIsKeyMilestone=function(t){if(typeof t.keyMilestone==='boolean')return t.keyMilestone;if(!['创新大赛','挑战杯','职规赛'].includes(t.category))return false;return ['校赛','校级选拔','省赛','省赛现场决赛','国赛','全国总决赛','全国总决赛 / 归档'].includes(String(t.stage||'').trim());};
+window.PLANNER_TITLE_UPDATES={};window.PLANNER_ACTION_UPDATES={};
+window.plannerMigrateInstitutionalState=function(state){
+ const fp=text=>{let h=2166136261;for(let i=0;i<text.length;i++){h^=text.charCodeAt(i);h=Math.imul(h,16777619);}return text.length+':'+(h>>>0).toString(16);};
+ const target=new Map(PLANNER_SEED.map(t=>[t.id,t]));
+ const retired={"id":"seed-1","category":"统筹与复盘","title":["15:9b19d0b8"],"action":["70:faa04800"]};
+ const rules={"seed-2":{"category":"职规赛","fields":{"title":["13:2204d59a"],"action":["38:cef46e8e"],"output":["12:4723bbb5"],"dependency":["26:d4416433"],"stage":["11:f8e14735"],"period":["12:e4e881e"],"evidence":["85:52642407"],"url":["70:879cf5a8"]}},"seed-3":{"category":"创新大赛","fields":{"title":["16:7ea57176"],"action":["41:c92786af"],"output":["18:2a26f207"],"dependency":["27:98e1142d"],"stage":["6:661dbfcd"],"period":["16:5c7ef800"],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-4":{"category":"大创与日常","fields":{"title":["15:986cd996"],"action":["42:585712bb"],"output":["13:61eee5c"],"dependency":["15:3f56157"],"stage":["13:36bd3091"],"period":["14:d48fd30d"],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-5":{"category":"活动承办","fields":{"title":["14:4f5ae9aa"],"action":["32:3b5b7e4c"],"output":["17:4b37cc6f"],"dependency":["23:e7452183"],"stage":["4:2925a585"],"period":["8:ae08e7ad"],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-6":{"category":"创新大赛","fields":{"title":["13:8d58c476"],"action":["29:39e3e6a0"],"output":["16:b20d7800"],"dependency":["18:d24ffa3d"],"stage":[],"period":[],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-7":{"category":"职规赛","fields":{"title":["15:66277e37","15:6b4bb3d9"],"action":["34:a7d9b783"],"output":["12:464f5055"],"dependency":["22:db34215d"],"stage":["4:6fabf414"],"period":["12:cfa86f89"],"evidence":["85:52642407"],"url":["70:879cf5a8"]}},"seed-8":{"category":"挑战杯","fields":{"title":["15:28454dc6"],"action":["32:bea5ee4f"],"output":["13:a1995f6b"],"dependency":["25:5c1957a6"],"stage":["11:dd90e28"],"period":["16:b40a1018"],"evidence":["77:37526e62"],"url":["41:d1e7d69a"]}},"seed-9":{"category":"统筹与复盘","fields":{"title":["14:88ad27b8"],"action":["32:5eec48be"],"output":["14:88fa0f99"],"dependency":["21:558c3202"],"stage":["4:489bd6eb"],"period":["12:cfa86f89"],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-10":{"category":"活动承办","fields":{"title":["15:dc3b5ef9"],"action":["28:ae33339a"],"output":["14:3cea8b93"],"dependency":["18:3486e3af"],"stage":["4:88a67b76"],"period":["8:c3b96ce6"],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-11":{"category":"职规赛","fields":{"title":["13:18a2cff"],"action":["32:670209f2"],"output":["13:2a0024c3"],"dependency":["25:8f7a48c7"],"stage":["11:e8a794b4"],"period":["18:56a0331d"],"evidence":["85:52642407"],"url":["70:879cf5a8"]}},"seed-12":{"category":"创新大赛","fields":{"title":["13:7ea041f3"],"action":["30:fae849de"],"output":["10:6e602e38"],"dependency":["13:452ae471"],"stage":[],"period":[],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-13":{"category":"挑战杯","fields":{"title":["13:5c985124"],"action":["23:9928b6cc"],"output":["11:a70c431a"],"dependency":["21:ecd7faa8"],"stage":[],"period":[],"evidence":["77:37526e62"],"url":["41:d1e7d69a"]}},"seed-14":{"category":"活动承办","fields":{"title":["15:68e56e82"],"action":["29:71f70d9e"],"output":["7:3215159"],"dependency":["21:d2034622"],"stage":[],"period":[],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-15":{"category":"创新大赛","fields":{"title":["15:f140273"],"action":["27:d1b1c2a8"],"output":["13:da0f1ea0"],"dependency":["14:c89b4123"],"stage":[],"period":[],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-16":{"category":"挑战杯","fields":{"title":["13:e0abdf47"],"action":["26:153cdbc0"],"output":["11:15f076c8"],"dependency":["18:676924a1"],"stage":["4:103de447"],"period":["14:93dc9346"],"evidence":["78:5725833d"],"url":["38:62bd9751"]}},"seed-17":{"category":"职规赛","fields":{"title":["11:a5f4dc5"],"action":["21:54429957"],"output":["11:d12459cc"],"dependency":["18:8d91b45a"],"stage":["4:ba46fed7"],"period":["11:95a233e9"],"evidence":["85:52642407"],"url":["70:879cf5a8"]}},"seed-18":{"category":"大创与日常","fields":{"title":["15:8bbbc679"],"action":["28:f03475a0"],"output":["12:f3e07088"],"dependency":["19:feb0368e"],"stage":["11:301f55ec"],"period":["12:a0050f4e"],"evidence":["32:79c7a09"],"url":["0:811c9dc5"]}},"seed-19":{"category":"职规赛","fields":{"title":["11:15ed1a4e","13:398dd062"],"action":["28:e27fdb2d"],"output":["11:74d771a0"],"dependency":["26:7ded9bf3"],"stage":["2:f4911f75"],"period":["17:c252e4e7"],"evidence":["85:52642407"],"url":["70:879cf5a8"]}},"seed-20":{"category":"创新大赛","fields":{"title":["11:d6adaeae"],"action":["35:30ffc1fb"],"output":["15:b62545c0"],"dependency":["26:207aa998"],"stage":["4:91a5d462"],"period":["11:8102fef0"],"evidence":["83:44d1178d"],"url":["42:4ddf12f5"]}},"seed-21":{"category":"挑战杯","fields":{"title":["13:7550ab37","11:3c514ddf"],"action":["38:37392634","26:36519792"],"output":["13:d8ace186"],"dependency":["23:61129d63"],"stage":["2:51a56815"],"period":["11:8102fef0"],"evidence":["78:5725833d"],"url":["38:62bd9751"]}},"seed-22":{"category":"活动承办","fields":{"title":["12:8a10d198"],"action":["27:17e010fc"],"output":["12:2914eda9"],"dependency":["18:359cb62f"],"stage":["6:5b4e8915"],"period":["11:8102fef0"],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-23":{"category":"创新大赛","fields":{"title":["11:359556da"],"action":["31:fe92ddfc"],"output":["13:bcd6f666"],"dependency":["18:c7400118"],"stage":["9:8609f3"],"period":["11:8f17e893"],"evidence":["83:44d1178d"],"url":["42:4ddf12f5"]}},"seed-24":{"category":"挑战杯","fields":{"title":["11:c7caf8a1"],"action":["28:3526e654"],"output":["14:606a9e39"],"dependency":["22:41345532"],"stage":["9:c234e870"],"period":["13:28c0e51e"],"evidence":["78:5725833d"],"url":["38:62bd9751"]}},"seed-25":{"category":"职规赛","fields":{"title":["16:2949408d","12:31f64c43","14:d555ab87"],"action":["26:75a1100e"],"output":["15:4eb8f66d"],"dependency":["22:d5a093f6"],"stage":["10:d6d5f947"],"period":["13:858ace1e"],"evidence":["85:52642407"],"url":["70:879cf5a8"]}},"seed-26":{"category":"大创与日常","fields":{"title":["14:8ea0f9e2"],"action":["24:9a765f02"],"output":["8:98daaa41"],"dependency":["20:fbbea6cb"],"stage":["11:dd5a400c"],"period":["12:e86008d0"],"evidence":["32:79c7a09"],"url":["0:811c9dc5"]}},"seed-27":{"category":"创新大赛","fields":{"title":["13:7983a8e7","15:65488901"],"action":["39:f2cf1402","27:f9a2e874"],"output":["14:f985d1ca"],"dependency":["24:9b3dee8e"],"stage":["2:51a56815"],"period":["13:3c9f2c4a"],"evidence":["83:44d1178d"],"url":["42:4ddf12f5"]}},"seed-28":{"category":"挑战杯","fields":{"title":["14:8e1d4881"],"action":["28:cb00faec"],"output":["9:46be06b7"],"dependency":["19:35aa8cee"],"stage":["11:a54d1d29"],"period":["11:f411dc12"],"evidence":["77:37526e62"],"url":["41:d1e7d69a"]}},"seed-29":{"category":"活动承办","fields":{"title":["12:74d15874"],"action":["34:d4a8b3ea"],"output":["15:12598053"],"dependency":["23:6ad41188"],"stage":["12:35d8a510"],"period":["18:8bbe3407"],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-30":{"category":"创新大赛","fields":{"title":["13:f7de8c35"],"action":["33:ffd84e78"],"output":["14:b4294946"],"dependency":["26:e88bc755"],"stage":["9:8e4cb2e5"],"period":["13:a15d6c18"],"evidence":["83:44d1178d"],"url":["42:4ddf12f5"]}},"seed-31":{"category":"挑战杯","fields":{"title":["13:8aad969c","13:aebbb2e1"],"action":["40:27beca6c","26:d067effb"],"output":["13:6f169ee5"],"dependency":["13:93d1459a"],"stage":["2:f4911f75"],"period":["15:960f31f9"],"evidence":["77:37526e62"],"url":["41:d1e7d69a"]}},"seed-32":{"category":"大创与日常","fields":{"title":["15:3bc1c639"],"action":["25:741829a"],"output":["9:6f6e5fbe"],"dependency":["20:6c9b4757"],"stage":["11:3edb5589"],"period":["12:bd1c3202"],"evidence":["32:79c7a09"],"url":["0:811c9dc5"]}},"seed-33":{"category":"创新大赛","fields":{"title":["10:609613f","10:69cb5d3d"],"action":["46:2f97cdb","31:8a6c9bd7"],"output":["15:f1f77f4c"],"dependency":["28:d14ed89d"],"stage":["6:3a24662d"],"period":["13:970b1a49"],"evidence":["60:871e9414"],"url":["44:90d898a4"]}},"seed-34":{"category":"挑战杯","fields":{"title":["11:9e6cd8d1"],"action":["30:69b812fd"],"output":["9:874a14da"],"dependency":["20:e0cfcc2b"],"stage":["11:7caaf4e2"],"period":["13:f62c33d1"],"evidence":["77:37526e62"],"url":["41:d1e7d69a"]}},"seed-35":{"category":"大创与日常","fields":{"title":["13:c92946e5"],"action":["30:cfee06a7"],"output":["14:17f67e98"],"dependency":["12:5dcdee74"],"stage":[],"period":[],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-36":{"category":"创新大赛","fields":{"title":["14:8a193847"],"action":["28:44854cd9"],"output":["12:46a163b1"],"dependency":["20:53202f1f"],"stage":["9:1c2c2bd1"],"period":["13:b883a92a"],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-37":{"category":"活动承办","fields":{"title":["13:ffe57221"],"action":["26:b1b85e1b"],"output":["11:2fb0f9f7"],"dependency":["14:2361b284"],"stage":[],"period":[],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-38":{"category":"统筹与复盘","fields":{"title":["14:eb39fa4d"],"action":["32:a8b0ca2f"],"output":["11:47f9f8f4"],"dependency":["12:950bd9c8"],"stage":["4:667d4399"],"period":["11:6cca6557"],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-39":{"category":"创新大赛","fields":{"title":["16:2949408d","14:d555ab87","12:31f64c43"],"action":["41:4f4c4167","27:b6c49481"],"output":["14:7a03d5b2"],"dependency":["20:641987ed"],"stage":["5:cef8aad"],"period":["20:d23310a1"],"evidence":["82:984445b8"],"url":["69:f26a4eab"]}},"seed-40":{"category":"职规赛","fields":{"title":["12:540421a2"],"action":["29:9b5ff70b"],"output":["12:5984f0ef"],"dependency":["11:aefdd0db"],"stage":[],"period":[],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-41":{"category":"大创与日常","fields":{"title":["15:49379d3e"],"action":["26:ce0ef357"],"output":["7:6d640645"],"dependency":["12:1a0e1ad3"],"stage":["11:5afb910"],"period":["12:11a7121f"],"evidence":["32:79c7a09"],"url":["0:811c9dc5"]}},"seed-42":{"category":"职规赛","fields":{"title":["13:96559368"],"action":["29:cf96b41e"],"output":["13:80b76dfc"],"dependency":["20:955c580f"],"stage":[],"period":[],"evidence":["85:52642407"],"url":["70:879cf5a8"]}},"seed-43":{"category":"创新大赛","fields":{"title":["18:32017a18"],"action":["28:b79c4b47"],"output":["12:e9f56ba8"],"dependency":["20:d6f5627b"],"stage":["11:3e715ff0"],"period":["15:31a52d78"],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-44":{"category":"活动承办","fields":{"title":["15:d1074293"],"action":["30:d5d7cc0f"],"output":["11:c288b598"],"dependency":["18:abc9856f"],"stage":["11:ce8984c5"],"period":["12:4eb58078"],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-45":{"category":"统筹与复盘","fields":{"title":["14:4574a086"],"action":["26:e736f4fc"],"output":["13:c73565e"],"dependency":["12:1c8c42"],"stage":["6:2d4f9b18"],"period":["12:80a9fa31"],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-46":{"category":"职规赛","fields":{"title":["12:ea0dfa2d"],"action":["26:9e3c67dd"],"output":["10:6eaf3ef2"],"dependency":["16:c7ad8513"],"stage":[],"period":[],"evidence":["85:52642407"],"url":["70:879cf5a8"]}},"seed-47":{"category":"大创与日常","fields":{"title":["13:18cc37fb"],"action":["22:611acaa8"],"output":["11:667e0f8a"],"dependency":["14:2e0a2b4c"],"stage":["9:1e94937f"],"period":["13:aec59466"],"evidence":["32:79c7a09"],"url":["0:811c9dc5"]}},"seed-48":{"category":"统筹与复盘","fields":{"title":["15:fd6bb31"],"action":["35:933621b5"],"output":["15:526be59f"],"dependency":["15:5ca29bdd"],"stage":["4:1530a6f8"],"period":["12:f230fd86"],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-49":{"category":"创新大赛","fields":{"title":["12:e27c11f8"],"action":["29:87c20e31"],"output":["7:d01e33d3"],"dependency":["11:c8a4f713"],"stage":[],"period":[],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}},"seed-50":{"category":"职规赛","fields":{"title":["13:ad98a662"],"action":["26:c930741b"],"output":["11:d218e4f6"],"dependency":["17:c11db8ac"],"stage":[],"period":[],"evidence":["85:52642407"],"url":["70:879cf5a8"]}},"phase-innovation-registration":{"category":"创新大赛","fields":{"title":["11:1b62e427"],"action":["43:8c9b302a"],"output":["11:81ff40c2"],"dependency":["23:12dc1b1e"],"stage":["9:904deeca"],"period":["16:80ef7c3a"],"evidence":["83:44d1178d"],"url":["42:4ddf12f5"]}},"phase-innovation-review":{"category":"创新大赛","fields":{"title":["14:2856294f"],"action":["40:f786e505"],"output":["15:8ffdcf95"],"dependency":["21:1e750da3"],"stage":["13:605bccd"],"period":["13:e3a361b4"],"evidence":["83:44d1178d"],"url":["42:4ddf12f5"]}},"phase-challenge-national":{"category":"挑战杯","fields":{"title":["13:55aa6253","11:dd409495"],"action":["35:ede3b01c"],"output":["9:b1b4a772"],"dependency":["29:e53d550a"],"stage":["5:cef8aad"],"period":["17:7eb2311d"],"evidence":["50:6bfd2f4"],"url":["48:82ded340"]}},"phase-challenge-archive":{"category":"挑战杯","fields":{"title":["14:5694341e"],"action":["35:e29b442e"],"output":["16:cd40c2c2"],"dependency":["9:2dc430b9"],"stage":["4:1d820f4b"],"period":["15:3e75f64"],"evidence":["77:37526e62"],"url":["41:d1e7d69a"]}},"phase-career-launch":{"category":"职规赛","fields":{"title":["14:566404fe"],"action":["43:bb59ce68"],"output":["17:386d8ab1"],"dependency":["22:55fcda61"],"stage":["4:91a5d462"],"period":["17:63a4d0a0"],"evidence":["85:52642407"],"url":["70:879cf5a8"]}},"phase-career-review":{"category":"职规赛","fields":{"title":["14:736e1d4b"],"action":["44:8f932aec"],"output":["13:ef15e630"],"dependency":["25:d4e49a4c"],"stage":["11:f955c13d"],"period":["22:136636d0"],"evidence":["85:52642407"],"url":["70:879cf5a8"]}},"phase-dachuang-launch":{"category":"大创与日常","fields":{"title":["16:2a1c57bd"],"action":["38:ae26c29d"],"output":["15:cee8ff18"],"dependency":["24:e5b821a1"],"stage":["11:f8330b69"],"period":["18:d631113d"],"evidence":["29:8240c186"],"url":["0:811c9dc5"]}},"phase-dachuang-approval":{"category":"大创与日常","fields":{"title":["13:30c9ffee"],"action":["42:eaa9167a"],"output":["16:adc78d19"],"dependency":["17:84491b43"],"stage":["11:44d2a04e"],"period":["16:8542cbf9"],"evidence":["29:8240c186"],"url":["0:811c9dc5"]}},"phase-activity-run":{"category":"活动承办","fields":{"title":["12:6b9ea4ec"],"action":["42:9c07dd82"],"output":["14:fba6572a"],"dependency":["28:b5140bfd"],"stage":["12:8897e2ef"],"period":["12:141500e4"],"evidence":["98:45d060dc"],"url":["58:7bf098ad"]}}};
+ const matches=(values,value)=>typeof value==='string'&&values.includes(fp(value));
+ for(const t of state.tasks){
+  if(!t.retiredReason&&t.category===retired.category&&(matches(retired.title,t.title)||matches(retired.action,t.action))){t.deleted=true;t.retiredReason='个人入职熟悉任务，已移出创院年度业务排期';continue;}
+  let rule=rules[t.id],next=target.get(t.id);
+  if(!rule){const entry=Object.entries(rules).find(([,r])=>r.category===t.category&&matches(r.fields.title,t.title));if(entry){rule=entry[1];next=target.get(entry[0]);}}
+  if(!rule||!next||rule.category!==t.category)continue;
+  for(const [field,values]of Object.entries(rule.fields))if(matches(values,t[field])){if(next[field]===undefined)delete t[field];else t[field]=next[field];}
+ }
+ return state;
+};
