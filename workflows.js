@@ -153,3 +153,122 @@ window.plannerMigrateInstitutionalState=function(state){const original=new Map(s
 
 const migrateBeforeRemovingExplanations=window.plannerMigrateInstitutionalState;
 window.plannerMigrateInstitutionalState=function(state){migrateBeforeRemovingExplanations(state);for(const t of state.tasks)for(const field of ["basis","dependency","evidence","url","period"])delete t[field];return state;};
+
+const previousActionText = {
+  "seed-2": {
+    "title": "组织报名并受理院级推荐",
+    "action": "发布报名和院级选拔要求，汇总二级学院推荐结果，核验校赛选手资格。"
+  },
+  "seed-8": {
+    "action": "春季开学后发布作品类别、参赛资格和材料要求，受理二级学院报送的已有作品与报名材料。",
+    "output": "赛事通知、报名作品及推荐材料"
+  },
+  "seed-25": {
+    "action": "仅对实际晋级选手提供参赛支持；未晋级则复盘省赛反馈。",
+    "output": "参赛或复盘记录、可复用指导案例"
+  },
+  "seed-30": {
+    "action": "校赛后核对推荐名额、排序、参赛资格及学生贡献，按通知完成公示、签章和附件准备；平台开放后报送。"
+  },
+  "seed-31": {
+    "title": "组织省赛参赛，跟踪评审结果",
+    "output": "实际结果记录、下一阶段任务"
+  },
+  "seed-39": {
+    "action": "仅对实际晋级项目组织全国总决赛参赛，落实展示、答辩与参赛保障；未晋级项目转入复盘。",
+    "output": "参赛或复盘材料、持续培育清单"
+  },
+  "phase-challenge-national": {
+    "action": "仅对实际晋级作品落实材料、展示、问答与参赛保障；未晋级则转入成果复盘。",
+    "output": "国赛参赛或复盘材料"
+  }
+};
+const migrateBeforeActionReview=window.plannerMigrateInstitutionalState;
+window.plannerMigrateInstitutionalState=function(state) {
+  migrateBeforeActionReview(state);
+  if (state.actionReviewVersion===1) return state;
+  for (const t of state.tasks) {
+    if (!Object.hasOwn(previousActionText,t.id)) continue;
+    const seed=PLANNER_SEED.find(item=>item.id===t.id && item.category===t.category);
+    if (!seed) continue;
+    for (const [field,old] of Object.entries(previousActionText[t.id])) {
+      if (t[field]===old) t[field]=seed[field];
+    }
+  }
+  state.actionReviewVersion=1;
+  return state;
+};
+
+function plannerValidateState(s, categories, statuses, migrate) {
+  if (!s || s.schema !== 1 || !Number.isSafeInteger(s.revision) || s.revision < 0 ||
+      !Array.isArray(s.tasks) || s.tasks.length > 5000) throw Error('备份格式不正确');
+  const ids = new Set();
+  for (const t of s.tasks) {
+    if (!t || typeof t.id !== 'string' || !t.id.trim() || ids.has(t.id) ||
+        !Number.isInteger(t.year) || t.year < 2020 || t.year > 2100 ||
+        !Number.isInteger(t.month) || t.month < 0 || t.month > 12 ||
+        !categories.includes(t.category) || !statuses.includes(t.status) ||
+        typeof t.title !== 'string' || !t.title.trim() || t.title.length > 120 ||
+        typeof t.deleted !== 'boolean' || typeof t.important !== 'boolean' ||
+        (t.keyMilestone !== undefined && typeof t.keyMilestone !== 'boolean')) {
+      throw Error('事项字段不完整或编号重复');
+    }
+    for (const key of ['owner', 'action', 'output']) {
+      if (typeof t[key] !== 'string' || t[key].length > 10000) throw Error('事项文本不正确');
+    }
+    for (const key of ['stage', 'process']) {
+      if (t[key] !== undefined && (typeof t[key] !== 'string' || t[key].length > 10000)) throw Error('事项阶段或工作线格式不正确');
+    }
+    if (t.displayOrder !== undefined && !Number.isFinite(t.displayOrder)) throw Error('事项排序格式不正确');
+    if (t.status==='未晋级' && !plannerIsConditional(t)) throw Error('仅晋级后执行的正赛可标记为未晋级，请核对事项状态。');
+    ids.add(t.id);
+  }
+  return migrate ? plannerMigrateInstitutionalState(s) : s;
+}
+
+const plannerFields = {
+  year: '年份', month: '月份', category: '工作线', stage: '所属阶段', title: '事项名称',
+  action: '具体工作', output: '应形成成果', owner: '负责人', status: '状态',
+  keyMilestone: '正赛关键节点', deleted: '回收站状态', process: '关联工作线', displayOrder: '显示顺序'
+};
+function plannerFieldValue(task, key) {
+  if (key === 'keyMilestone') return plannerIsKeyMilestone(task);
+  if (key === 'displayOrder') return task.displayOrder ?? 50;
+  return task[key] ?? '';
+}
+function plannerChangedFields(a, b) {
+  return Object.keys(plannerFields).filter(key => plannerFieldValue(a, key) !== plannerFieldValue(b, key));
+}
+function plannerCompareBackup(local, incoming) {
+  const byId = new Map(local.map(t => [t.id, t]));
+  const added = [], conflicts = [];
+  let same = 0;
+  for (const task of incoming) {
+    const current = byId.get(task.id);
+    if (!current) { added.push(task); continue; }
+    const fields = plannerChangedFields(current, task);
+    if (fields.length) conflicts.push({ current, task, fields });
+    else same++;
+  }
+  return { added, conflicts, same };
+}
+
+function plannerIsConditional(t) {
+  return plannerIsKeyMilestone(t) && (/(?:晋级|入围)后执行/.test(t.title) || /仅对实际(?:晋级|入围)/.test(t.action));
+}
+function plannerMonthOrder(a,b) {
+  return Number(a.status==='未晋级')-Number(b.status==='未晋级') ||
+    Number(plannerIsKeyMilestone(b))-Number(plannerIsKeyMilestone(a)) ||
+    Number(plannerIsConditional(a))-Number(plannerIsConditional(b)) ||
+    (a.displayOrder??50)-(b.displayOrder??50) || a.id.localeCompare(b.id,undefined,{numeric:true});
+}
+function plannerCsv(rows) {
+  const cell=value=>'"'+String(value??'').replace(/^[\s]*[=+@-]/,s=>"'"+s).replace(/"/g,'""')+'"';
+  return '\ufeff'+rows.map(row=>row.map(cell).join(',')).join('\r\n');
+}
+function plannerCalendarCsv(tasks) {
+  const rows=[...tasks].sort((a,b)=>a.year-b.year || (a.month||13)-(b.month||13) || plannerMonthOrder(a,b));
+  return plannerCsv([['年份','月份','工作线','阶段','事项','本月关键节点','状态','负责人','具体工作','应形成成果'],
+    ...rows.map(t=>[t.year,t.month||'按通知',PLANNER_LABELS[t.category],t.stage,plannerTaskTitle(t),
+      plannerIsKeyMilestone(t)?(plannerIsConditional(t)?'晋级后执行':'正赛'):'',t.status,t.owner,t.action,t.output])]);
+}
